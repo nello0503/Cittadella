@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="500" prefWidth="800" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.MainController">
+
+	<left>
+		<VBox prefWidth="200.0" spacing="10.0">
+			<padding>
+				<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+			</padding>
+
+			<children>
+
+				<Label text="Filtra per attività:" />
+
+				<ChoiceBox fx:id="choiceAttivita" maxWidth="1.7976931348623157E308" prefWidth="180.0" />
+				<Label text="Aggiungi uno studente:" />
+				<Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onApriMascheraAggiungi" text="Crea nuovo studente" />
+
+				<Label text="Cerca per matricola:" />
+
+				<HBox spacing="8.0">
+					<children>
+						<TextField fx:id="txtCerca" onAction="#cercaStudente" promptText="Es. 12345" HBox.hgrow="ALWAYS" />
+
+						<Button minWidth="80.0" mnemonicParsing="false" onAction="#cercaStudente" text="Cerca" />
+					</children>
+				</HBox>
+			</children>
+		</VBox>
+
+	</left>
+	<center>
+		<TableView fx:id="tableStudenti" prefHeight="200.0" prefWidth="200.0" visible="true" BorderPane.alignment="CENTER">
+			<columnResizePolicy>
+				<TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+			</columnResizePolicy>
+			<columns>
+				<TableColumn fx:id="colMatricola" text="Matricola" />
+				<TableColumn fx:id="colNome" text="Nome" />
+				<TableColumn fx:id="colCognome" text="Cognome" />
+			</columns>
+		</TableView>
+	</center>
+	<bottom>
+	</bottom>
+
+</BorderPane>
